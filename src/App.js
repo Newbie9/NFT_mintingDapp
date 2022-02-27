@@ -10,6 +10,8 @@ import { send } from 'emailjs-com';
 import Navbar from "./componenets/Navbar";
 import Footer from "./componenets/Footer"
 import FAQ from "./componenets/FAQ"
+import WeGiveBack from "./componenets/WeGiveBack"
+import Artist from "./componenets/Artist"
 import OwnedNFTS from "./componenets/ownedNFTS"
 import Cover from "./componenets/Cover"
 import nftGif from "./assets/images/nftGif.gif"
@@ -25,6 +27,7 @@ import { ScrollTo } from "react-scroll-to";
 
 import { initializeApp } from "@firebase/app";
 import { getAnalytics } from "@firebase/analytics";
+import Roadmap from "./componenets/Roadmap";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -160,8 +163,8 @@ function App() {
                     NFT
                   </Text>
                 </VStack>
-                <Box w='30vw' h='58vh' >
-                  <Image w='30vw' h='50vh' src={nftGif} />
+                <Box w='30vw' h='58vh' pb='20vh'>
+                  <Image w='30vw' h='58vh' src={nftGif} />
                 </Box>
 
 
@@ -272,8 +275,9 @@ function App() {
 
 
               <OwnedNFTS />
-
-
+              <Roadmap/>
+              <WeGiveBack/>
+              <Artist/>
             </VStack>
           </Flex>
 

@@ -19,6 +19,8 @@ import textureimg from "./assets/images/texture.png"
 import cerceve1 from "./assets/images/cerceve1.png"
 import stringsimg from "./assets/images/strings.PNG"
 import yumurta from "./assets/images/Yumurta.png"
+import mintplus from "./assets/images/mintplus.png"
+import mintminus from "./assets/images/mintminus.png"
 import { ScrollTo } from "react-scroll-to";
 
 import { initializeApp } from "@firebase/app";
@@ -34,10 +36,10 @@ function App() {
   const [feedback, setFeedback] = useState("");
   const [claimingNft, setClaimingNft] = useState(false);
   const [amount, setAmount] = useState(1);
-  
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(false);
-  
+
   const [LoadingMostMinters, setLoadingMostMinters] = useState(false);
 
   const [mintingOpen, setmintingOpen] = useState(false);
@@ -110,7 +112,7 @@ function App() {
   };
 
 
-  
+
 
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
@@ -129,11 +131,11 @@ function App() {
     }
   }, [blockchain.smartContract, blockchain.account]);
 
-  
+
 
   return (
     <div>
-      
+
       {button ?
         <div>
         </div>
@@ -143,31 +145,26 @@ function App() {
 
 
         <div>
-          <HStack w='100%'  alignItems='top' minH='80vh' paddingX={'0px'} spacing='0px'>
-            
-            <VStack w='100%'  marginX={'0%'} spacing={'0'} spacingX={'0'}>
-            <Navbar />
-            <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={'80% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
-            <VStack w='100%'  marginX={'0%'} minH='80vh' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={'80% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
 
-              <HStack w='100%'  pt='5vh' pb='5vh' alignItems='center' >
-                <VStack marginLeft={'15vw'}  w='35vw' h='40vh' pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+          <Navbar />
+          <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={'80% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+            <VStack w='100%' marginX={'0%'} minH='80vh' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={'80% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+
+              <HStack w='100%' pt='5vh' pb='5vh' alignItems='center' spacing='100px' >
+                <VStack marginLeft={'15vw'} alignItems='auto' w='35vw' h='40vh' pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
                   <Text mt='10px' mx='auto' fontWeight="semibold" fontSize='4xl' color='#52392E'>
                     What is Sophia the Cat
                   </Text>
-                  <Text margin='1em' fontSize='xl' color='#52392E'>
-                    Sophia the Cat is an NFT collection of uniquely designed elegant kats.                    
-                  </Text>
-                  <Text mx='auto' fontSize='xl' color='#52392E'>                    
-                    The combination of sketchy and edgy looks will give you a new aspect for
-                  </Text>
-                  <Text mx='auto' fontSize='2xl' color='#52392E'>                    
-                     NFT
+                  <Text paddingLeft={'10'} paddingRight={'10'} marginLeft={'10'} fontSize='xl' color='#52392E'>
+                    Sophia the Cat is an NFT collection of uniquely designed elegant kats.The combination of sketchy and edgy looks will give you a new aspect for
+                    NFT
                   </Text>
                 </VStack>
-                <Flex w='25vw' h='50vh' alignItems={'center'} bgImage={yumurta} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'  marginEnd='300px'> 
-                  <Image  marginLeft={'1vw'} src={nftGif} objectFit="contain" pos = {'center', 'center'}/>
-                </Flex>
+                <Box w='30vw' h='58vh' >
+                  <Image w='30vw' h='50vh' src={nftGif} />
+                </Box>
+
+
               </HStack>
 
               <HStack pt='30' px='5vw' p='3vw' overflow='false' >
@@ -187,69 +184,83 @@ function App() {
                     </>
                   ) : (
                     <>
-                      <Text fontSize='xl' color = '#9a6e5d' style={{ textAlign: "center" }}>
+                      <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
                         1 Cat costs 1 Avax.
                       </Text>
                       <Spacer />
-                      <Text color = '#9a6e5d' style={{ textAlign: "center" }}>
+                      <Text color='#9a6e5d' style={{ textAlign: "center" }}>
                         {feedback}
                       </Text>
 
                       <VStack spacing='10'>
-                        <Text color = '#9a6e5d' style={{ textAlign: "center", fontSize: 45, fontWeight: "bold" }} >
+                        <Text color='#9a6e5d' style={{ textAlign: "center", fontSize: 45, fontWeight: "bold" }} >
                           {data.totalSupply}/500 {"Cats Minted"}
                         </Text>
                         <HStack mt='5vh' spacing='10'>
-                          <Button borderColor="red.500"
-                            boxShadow='lg'
-                            borderRadius='150'
-                            variant="outline"
-                            textColor='9a6e5d'
-                            onClick={() => {
-                              if (amount > 1) {
-                                setAmount(amount - 1)
-                              }
+                          <Flex w='4vw' h='6vh' bgImage={mintminus} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
+                            <Button
+                              w='4vw'
+                              h='6vh'
+                              position={'center center'}
+                              //backgroundImage={'./assets/images/paw.png'}
+                              bg={'transparent'}
+                              _hover={{ bg: "transparent" }}
+                              color='white'
+                              mx-auto
+                              onClick={() => {
+                                if (amount > 1) {
+                                  setAmount(amount - 1)
+                                }
 
-                            }}>
-                            -
-                          </Button>
-                          <Text color = '#9a6e5d'>
+                              }}>
+
+
+                            </Button>
+                          </Flex>
+
+                          <Text color='#9a6e5d'>
                             {amount}
                           </Text>
-                          <Button
-                            borderColor='green'
-                            borderRadius='20'
-                            boxShadow='lg'
-                            variant="outline"
-                            textColor='9a6e5d'
-                            onClick={() => {
-                              if (amount < 20) {
-                                setAmount(amount + 1)
-                              }
-                            }}>
-                            +
-                          </Button>
-                        </HStack>
-                        <HStack > 
-                            <Flex w='16vw' h='20vh' bgImage={pawimage} backgroundSize={'14vw 24vh'} backgroundPosition={'center center'} alignItems={'auto'}>
-                              <Button                                
-                                w='20vw'
-                                h='20vh'                              
-                                position={'center center'}                              
-                                //backgroundImage={'./assets/images/paw.png'}
-                                bg={'transparent'}
-                                _hover={{ bg: "transparent" }}
-                                color='white'
-                                mx-auto
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  claimNFTs(amount);
-                                }}
+                          <Flex w='4vw' h='6vh' bgImage={mintplus} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
+                            <Button
+                              w='4vw'
+                              h='6vh'
+                              position={'center center'}
+                              //backgroundImage={'./assets/images/paw.png'}
+                              bg={'transparent'}
+                              _hover={{ bg: "transparent" }}
+                              color='white'
+                              mx-auto
+                              onClick={() => {
+                                if (amount < 20) {
+                                  setAmount(amount + 1)
+                                }
+                              }}>
 
-                              >
-                              </Button>
-                            </Flex>
-                        </HStack>                        
+
+                            </Button>
+                          </Flex>
+                        </HStack>
+
+                        <Flex w='16vw' h='20vh' bgImage={pawimage} backgroundSize={'14vw 24vh'} backgroundPosition={'center center'} alignItems={'auto'}>
+                          <Button
+                            w='20vw'
+                            h='20vh'
+                            position={'center center'}
+                            //backgroundImage={'./assets/images/paw.png'}
+                            bg={'transparent'}
+                            _hover={{ bg: "transparent" }}
+                            color='white'
+                            mx-auto
+                            onClick={(e) => {
+                              e.preventDefault();
+                              claimNFTs(amount);
+                            }}
+
+                          >
+                          </Button>
+                        </Flex>
+
                       </VStack>
 
                     </>
@@ -257,17 +268,15 @@ function App() {
 
                 </Box>
               </HStack>
-              
 
-                               
-              <OwnedNFTS/>                 
-              <FAQ/>
+
+
+              <OwnedNFTS />
+
 
             </VStack>
-            </Flex>
-            </VStack>
-            
-          </HStack>
+          </Flex>
+
 
         </div>
       }

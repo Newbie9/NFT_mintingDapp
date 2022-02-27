@@ -15,7 +15,7 @@ import {
   } from "@chakra-ui/react"
 import { useToast } from "@chakra-ui/react"
 import Logo from "../assets/images/website_logo.png"
-import {FaTwitter, FaTelegramPlane, FaDiscord } from "react-icons/fa"
+import {FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"
 import {GiHamburgerMenu} from "react-icons/gi"
 import {MdAccountBalanceWallet, MdConstruction} from "react-icons/md"
 import {IoIosConstruct} from "react-icons/io"
@@ -44,20 +44,7 @@ function Navbar() {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false)
 
-    const claimRewards = () => {    
-        if (data.reward <= 0) {
-          console.log("no rewards to claim")
-          return;
-        }
-        console.log("claiming rewards")
-        blockchain.smartContract.methods.claimRewards()
-            .send({from:blockchain.account })      
-          .then((receipt) => {
-            console.log(receipt);        
-            dispatch(fetchData(blockchain.account));
-          });
-      };
-
+    
     const showButton = () => {
         if (window.innerWidth <= 960) {
           setButton(true);
@@ -99,9 +86,7 @@ function Navbar() {
 
     return (
         <div>
-            {button ? 
-                <div></div>
-            : 
+            
                 <HStack
                     w='100%'
                     h='20vh'
@@ -110,64 +95,61 @@ function Navbar() {
                     bg='#43403f'
                     marginX={'0'}
                 >  
-                    <a href="https://avaxfoxes.com/" >          
+                    <a href="https://sophiathecat.co/" >          
                     <Image
                         src={Logo}
-                        w='25vw'
-                        ml='35vw'               
+                        w={!button ? '25vw' : '45vw'}
+                        ml={!button ? '35vw' : '2vw'}               
                         h='20vh'                        
                     />
                     </a>
                     
-                    <HStack >
+                    <HStack>
                         
-                        <Box
-                            align='center'
-                            w='4vw'
-                            fontSize='3xl'
-                            fontWeight='semibold'                            
-                            px='4'
-                            py='1'
-                            borderRadius='150'
-                            _hover={{bg: "blackAlpha.400"}}         
-                        >
-                            <a href='https://twitter.com/avax_foxes'>
-                                <Icon as={FaTwitter} color='#9a6e5d' />
-                            </a>
-                        </Box>
-                        <Box
-                            align='center'
-                            w='4vw'
-                            fontSize='3xl'
-                            fontWeight='semibold'
-                            px='4'
-                            py='1'
-                            borderRadius='150'
-                            _hover={{bg: "blackAlpha.400"}}         
-                        >
-                            <a href='https://t.me/avax_foxes'>
-                                <Icon as={FaTelegramPlane} color='#9a6e5d'/>
-                            </a>
-                        </Box>
-                        <Box
-                            align='center'
-                            w='4vw'
-                            fontSize='3xl'
-                            fontWeight='semibold'
-                            px='4'
-                            py='1'                            
-                            borderRadius='150'
-                            _hover={{bg: "blackAlpha.400"}}         
-                        >
-                            <a href='https://discord.gg/x2DqFMfV8Z'>
-                                <Icon as={FaDiscord} color='#9a6e5d'/>
-                            </a>
-                        </Box>
+                    <Box
+                        align='center'
+                        w='4vw'
+                        fontSize='3xl'
+                        fontWeight='semibold'
+                        p='3'
+                        borderRadius='xl'
+                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                    >
+                        <a href='https://twitter.com/sophiathecatNFT'>
+                            <Icon h={button ? 5 : 8} as={FaTwitter} color='#9a6e5d' />
+                        </a>
+                    </Box>
+                    <Box
+                        align='center'
+                        w='4vw'
+                        fontSize='3xl'
+                        fontWeight='semibold'
+                        p='3'
+                        borderRadius='xl'
+                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                    >
+                        <a href='https://www.instagram.com/sophiathecat16/'>
+                            <Icon h={button ? 5 : 8} as={FaInstagram} color='#9a6e5d' />
+                        </a>
+                    </Box>
+                    <Box
+                        align='center'
+                        w='4vw'
+                        fontSize='3xl'
+                        fontWeight='semibold'
+                        p='3'
+                        borderRadius='xl'
+                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                    >
+                        <a href='https://discord.gg/x2DqFMfV8Z'>
+                            <Icon h={button ? 5 : 8} as={FaDiscord} color='#9a6e5d' />
+                        </a>
+                    </Box>
                         {blockchain.account === "" ||   blockchain.smartContract === null ? (
-                        <Box ml='25vw'>
+                        <Box paddingLeft={!button ? '0vw' : '12vw'}>
                             <Button
-                                px='22'
-                                py='7'
+                                p='3'                                
+                                w={!button ? '10vw' : '10vw'}
                                 bg='transparent'
                                 borderRadius='150'
                                 boxShadow='5'
@@ -181,7 +163,7 @@ function Navbar() {
                                 dispatch(connect());
                                 //getData();
                                 }}
-                                leftIcon=  {<Icon as={MdAccountBalanceWallet} color='#9a6e5d' w={7} h={7}/>}
+                                leftIcon=  {<Icon as={MdAccountBalanceWallet} color='#9a6e5d' w={button ? 5 : 8} h={button ? 5 : 8}/>}
                             >
                                 
                                 CONNECT
@@ -196,7 +178,7 @@ function Navbar() {
                          
                 </HStack>
                 
-            }
+            
                        
         </div>
     )

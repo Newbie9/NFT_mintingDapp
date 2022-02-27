@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AvalancheImage from '../assets/images/avalanche.png'
 import { Box, HStack, VStack, Image, Button, Spacer, Text } from '@chakra-ui/react'
-import { FaTwitter, FaTelegramPlane, FaDiscord } from "react-icons/fa"
+import { FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { MdAccountBalanceWallet } from "react-icons/md"
 import { Icon } from '@chakra-ui/icons';
@@ -28,7 +28,7 @@ function Footer() {
     return (
         <div>
 
-            <HStack w='100%' bg='#eadece' h='20vh' pl='20vw' spacing='auto' pr='15vw'>
+            <HStack w='100%' bg='#43403f' h='20vh' pl='20vw' spacing='auto' pr='15vw'>
                 
 
                 <HStack >
@@ -41,7 +41,7 @@ function Footer() {
                         borderRadius='xl'
                         _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
                     >
-                        <a href='https://twitter.com/avax_foxes'>
+                        <a href='https://twitter.com/sophiathecatNFT'>
                             <Icon h={button ? 5 : 8} as={FaTwitter} color='#9a6e5d' />
                         </a>
                     </Box>
@@ -54,8 +54,8 @@ function Footer() {
                         borderRadius='xl'
                         _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
                     >
-                        <a href='https://t.me/avax_foxes'>
-                            <Icon h={button ? 5 : 8} as={FaTelegramPlane} color='#9a6e5d' />
+                        <a href='https://www.instagram.com/sophiathecat16/'>
+                            <Icon h={button ? 5 : 8} as={FaInstagram} color='#9a6e5d' />
                         </a>
                     </Box>
                     <Box

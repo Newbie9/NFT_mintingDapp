@@ -66,7 +66,7 @@ export const connect = () => {
             SmartContract.abi,
             "0x9E073C3613cF70ebB666431f27cC2CD97b9F0ddB"
           );
-          //console.log(SmartContractObj);
+          console.log(SmartContractObj);
           dispatch(
             connectSuccess({
               account: accounts[0],

@@ -45,7 +45,8 @@ function WeGiveBack() {
             Charity
             </Text>
             <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-            5% of all primary sales will go to two charities: the Girls Not Brides, a charity that tackles child marriage, and the Malala Fund, a non-profit organization that champions every girl’s right to 12 years of free, safe, quality education. All donations will be shared on social media to keep ourselves accountable.                 
+            10% of all primary sales will go to two charities: Yeryüzü Doktorları, a charity that dedicates itself to reach the people in need who are unable to access health services and make them 
+            hold on to life and the Malala Fund, a non-profit organization that champions every girl’s right to 12 years of free, safe, quality education. All donations will be shared on social media to keep ourselves accountable.                 
             </Text>            
         </VStack>
         

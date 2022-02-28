@@ -1,5 +1,8 @@
 import React, {useState, useEffect}  from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { connect } from "../redux/blockchain/blockchainActions";
+
+import { fetchData } from "../redux/data/dataActions";
 import {Flex, VStack, Box, HStack, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, SimpleGrid, Spacer, Image} from '@chakra-ui/react'
 function OwnedNFTS() {
     
@@ -7,35 +10,28 @@ function OwnedNFTS() {
     const [button, setButton] = useState(false);   
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
-    const [viewNFTs, setviewNFTs] = useState(false);
+    const [viewNFTs, setviewNFTs] = useState(true);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false)
     const [NFTS, setNFTS] = useState([]);
     const [LoadingNFTS, setLoadingNFTS] = useState(false);
+    const dispatch = useDispatch();
 
     const fetchMetatDataForNFTS = () => {
-        if (blockchain.account !== "" && blockchain.smartContract !== null && LoadingNFTS) {
+      
+        if (blockchain.account !== "" && blockchain.smartContract !== null && !LoadingNFTS && !data.loading) {
+          setLoadingNFTS(true);
           setNFTS([]);
-          //blockchain.smartContract.methods.mintsOfOwner(blockchain.account).call().then(console.log)
-          //blockchain.smartContract.methods.getMostMinters().call().then(console.log)
-    
           for (let i = 0; i < data.tokensOfUser.length; i++) {
             let nft = data.tokensOfUser[i];
             blockchain.smartContract.methods.tokenURI(nft).call()
               .then((uri) => fetch(uri.replace("ipfs://", "https://ipfs.io/ipfs/")))
               .then((response) => response.json())
-              .then((metaData) => {
+              .then((metaData) => {                
                 setNFTS((prevState) => [
                   ...prevState,
                   { id: nft, metaData: metaData },
                 ]);
-              }).then(function () {
-                if (i == data.tokensOfUser.length - 1) {
-                  setLoadingNFTS(false)
-                  setNFTS((prevState) =>
-                    prevState.sort((a, b) => a.id < b.id ? 1 : -1)
-                  )
-                }
               })
               .catch((err) => {
                 console.log(err);
@@ -52,36 +48,44 @@ function OwnedNFTS() {
           setButton(false);
         }
       };
+
+      const getData = () => {
+        
+        if (blockchain.account !== "" && blockchain.smartContract !== null) {
+          console.log(blockchain.smartContract)
+          dispatch(fetchData(blockchain.account));
+    
+        }
+      };
     
 
     useEffect(() => {
         showButton();
     }, []);
+
     useEffect(() => {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
           fetchMetatDataForNFTS();
-         
         }
       }, [data]);
-    
+
+    useEffect(() => {
+        if (blockchain.account !== "" && blockchain.smartContract !== null) {
+          getData();
+        }
+      }, [blockchain.smartContract, blockchain.account]);
 
     window.addEventListener('resize', showButton);
 
     return (
         <div>
         {blockchain.account !== "" &&
-                blockchain.smartContract !== null && viewNFTs ? (
-                <VStack pt='30' bgGradient={'linear(to-b, transparent, blackAlpha.600)'} pb='5%' px='3vw' spacing='3%'>
-
+                blockchain.smartContract !== null && viewNFTs && data.tokensOfUser.length != 0 ? (
+                <VStack pt='30'  pb='5%' px='3vw' spacing='3%'>
                   <Text style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }} >
-                    {"Your Avax Foxes"}
-                  </Text>
-                  {data.tokensOfUser.length == 0 ? (
-                    <Text style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }} >
-                      {"You don't have any Avax Foxes"}
-                    </Text>
-                  ) : (null)}
-                  <SimpleGrid columns={4} spacingX="40px" spacingY="20px">
+                    {"Your Kets"}
+                  </Text>                  
+                  <SimpleGrid columns={!button ? 4 : 1} spacingX="40px" spacingY="20px">
                     {data.loading ? (
                       <>
                         <Spacer />
@@ -94,11 +98,11 @@ function OwnedNFTS() {
 
                         return (
 
-                          <VStack align='center' key={index} w='20vw ' bg='whiteAlpha.600' py='2vh' px='1vw' borderRadius='xl' boxShadow='xl' spacing='3%'>
+                          <VStack align='center' key={index} w={!button ? '20vw' : '80vw'} bg='whiteAlpha.600' py='2vh' px='1vw' borderRadius='xl' boxShadow='xl' spacing='3%'>
                             <Text align='center' fontWeight='semiBold' fontSize='xl'> {nft.metaData.name} </Text>
                             <Image
                               alt={nft.metaData.name}
-                              src={nft.metaData.image.replace("ipfs://", "https://ipfs.io/ipfs/")}
+                              src={nft.metaData.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/")}
                               boxSize="300px"
                               objectFit="cover"
                               pos={'center', 'center'}

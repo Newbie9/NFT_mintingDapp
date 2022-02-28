@@ -41,16 +41,16 @@ function Roadmap() {
                     Roadmap
                 </Text>
                 <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %25 Minted => We release a limited edition NFT airdropped to 5 lucky holders                    
+                    %25 Minted => We airdrop to 1 AVAX to 3 lucky holders                    
                 </Text>
                 <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %50 Minted => We release a limited edition NFT airdropped to 5 lucky holders                    
+                    %50 Minted => We airdrop to 2 AVAX to 3 lucky holders                    
                 </Text>
                 <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %75 Minted => We release a limited edition NFT airdropped to 5 lucky holders                    
+                    %75 Minted => We airdrop to 3 AVAX to 3 lucky holders                    
                 </Text>
                 <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %100 Minted => We release a limited edition NFT airdropped to 5 lucky holders                    
+                    %100 Minted => We airdrop to 4 AVAX to 3 lucky holders                    
                 </Text>
             </VStack>
             <Box  w='30%' h={!button ? '120%' : '70%'} >

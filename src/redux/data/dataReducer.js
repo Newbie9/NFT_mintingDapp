@@ -1,5 +1,5 @@
 const initialState = {
-  loading: false,
+  loading: true,
   name: "",
   totalSupply: 0,  
   tokensOfUser: [],

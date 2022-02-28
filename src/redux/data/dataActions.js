@@ -29,29 +29,18 @@ export const fetchData = (account) => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {
-      let name = await store
-        .getState()
-        .blockchain.smartContract.methods.name()
-        .call();
+      let name = "STC";
       let totalSupply = await store
         .getState()
         .blockchain.smartContract.methods.totalSupply()
         .call();
 
-      if (totalSupply<200){
-        totalSupply=totalSupply*1;
-      }
-      else{
-        totalSupply=totalSupply;
-      }
-      if (totalSupply>0){
-        totalSupply=totalSupply+144;
-      }
-      
+           
       let tokensOfUser = await store
         .getState()
         .blockchain.smartContract.methods.walletOfOwner(account)
-        .call();      
+        .call();  
+      console.log(tokensOfUser)    
       let reward = await store
         .getState()
         .blockchain.smartContract.methods.getReflectionBalances()

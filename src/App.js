@@ -140,8 +140,8 @@ function App() {
     
     <div>
         <Navbar />
-        <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={'80% 50%'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
-          <VStack w='100%' marginX={'0%'} minH='80%' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={'80% 50%'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
+        <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
+          <VStack w='100%' marginX={'0%'} minH='80%' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
             <HStack w='100%' pt='3%' pb='3%' alignItems='center' spacing='5%' >
               <VStack marginLeft={'15vw'} alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
                 <Text  mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
@@ -197,14 +197,14 @@ function App() {
                             bg={'transparent'}
                             _hover={{ bg: "transparent" }}
                             color='white'
-                            mx-auto
+                            mx-auto                            
                             onClick={() => {
                               if (amount > 1) {
                                 setAmount(amount - 1)
                               }
 
                             }}>
-
+                            
 
                           </Button>
                         </Flex>

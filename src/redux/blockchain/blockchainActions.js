@@ -1,7 +1,7 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import SmartContract from "../../contracts/AvaxFoxes.json";
+import SmartContract from "../../contracts/SophiaTheCat.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -59,12 +59,12 @@ export const connect = () => {
         //const NetworkData = await SmartContract.networks[networkId];
         const chainId = await ethereum.request({ method: 'eth_chainId' });
         //console.log(chainId);
-        if (chainId=="0xa86a") {       //0xa86a mainnetin chain id'si, 0xa869 fuji netin chain idsi
+        if (chainId=="0xa869") {       //0xa86a mainnetin chain id'si, 0xa869 fuji netin chain idsi
           const SmartContractObj = new Web3EthContract(
             //SmartContract.abi,
             //NetworkData.address            
             SmartContract.abi,
-            "0x9E073C3613cF70ebB666431f27cC2CD97b9F0ddB"
+            "0x8400BC0dC66Ee64169c8350C3760F0D0A20502A8"
           );
           console.log(SmartContractObj);
           dispatch(

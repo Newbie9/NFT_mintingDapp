@@ -34,17 +34,20 @@ export const fetchData = (account) => {
         .getState()
         .blockchain.smartContract.methods.totalSupply()
         .call();
-
+      let price = await store
+        .getState()
+        .blockchain.smartContract.methods.MINT_PRICE()
+        .call();
+      let paused = await store
+        .getState()
+        .blockchain.smartContract.methods.paused()
+        .call();
            
       let tokensOfUser = await store
         .getState()
         .blockchain.smartContract.methods.walletOfOwner(account)
         .call();  
-      console.log(tokensOfUser)    
-      let reward = await store
-        .getState()
-        .blockchain.smartContract.methods.getReflectionBalances()
-        .call({from:store.getState().blockchain.account });
+      console.log(tokensOfUser)      
       
       //console.log(reward)
       let temp = await dispatch(
@@ -52,7 +55,8 @@ export const fetchData = (account) => {
           name,
           totalSupply,          
           tokensOfUser,
-          reward,
+          price,
+          paused         
         })
       );
     } catch (err) {

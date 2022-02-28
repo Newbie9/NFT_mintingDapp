@@ -4,8 +4,9 @@ const initialState = {
   totalSupply: 0,  
   tokensOfUser: [],
   error: false,
-  errorMsg: "",  
-  reward: 0,
+  errorMsg: "", 
+  price:0,
+  paused:true,
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -24,7 +25,8 @@ const dataReducer = (state = initialState, action) => {
         name: action.payload.name,
         totalSupply: action.payload.totalSupply,        
         tokensOfUser: action.payload.tokensOfUser,
-        reward: action.payload.reward,
+        price: action.payload.price,   
+        paused: action.payload.paused,           
         error: false,
         errorMsg: "",
       };

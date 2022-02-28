@@ -25,7 +25,7 @@ function OwnedNFTS() {
           for (let i = 0; i < data.tokensOfUser.length; i++) {
             let nft = data.tokensOfUser[i];
             blockchain.smartContract.methods.tokenURI(nft).call()
-              .then((uri) => fetch(uri.replace("ipfs://", "https://ipfs.io/ipfs/")))
+              .then((uri) => fetch(uri.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"), {crossDomain:true} ))
               .then((response) => response.json())
               .then((metaData) => {                
                 setNFTS((prevState) => [

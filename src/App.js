@@ -13,6 +13,7 @@ import FAQ from "./componenets/FAQ"
 import WeGiveBack from "./componenets/WeGiveBack"
 import Artist from "./componenets/Artist"
 import OwnedNFTS from "./componenets/ownedNFTS"
+import WhatisSTC from "./componenets/WhatisSTC"
 import Cover from "./componenets/Cover"
 import nftGif from "./assets/images/nftGif.gif"
 import yildizgif from "./assets/images/yildiz_gif4.gif"
@@ -45,20 +46,7 @@ function App() {
 
   const [LoadingMostMinters, setLoadingMostMinters] = useState(false);
 
-  const [mintingOpen, setmintingOpen] = useState(true);
-  const firebaseConfig = {
-    apiKey: "AIzaSyA_J0kX2L1t5pSrX082D67B9UYyPDKSmvo",
-    authDomain: "avaxfoxes-deneme.firebaseapp.com",
-    projectId: "avaxfoxes-deneme",
-    storageBucket: "avaxfoxes-deneme.appspot.com",
-    messagingSenderId: "982796810661",
-    appId: "1:982796810661:web:4c0b37281ed9b3446b104c",
-    measurementId: "G-KB4G6YE0CS"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const [mintingOpen, setmintingOpen] = useState(true); 
 
   const toast = useToast()
   var triedConnect = false;
@@ -90,14 +78,14 @@ function App() {
     if (_amount <= 0) {
       return;
     }
-    setFeedback("Minting your Avax Fox...");
+    setFeedback("Minting your Ket...");
     setClaimingNft(true);
 
     blockchain.smartContract.methods
       .mint(_amount)
       .send({
         //gasLimit: "985000",
-        to: "0x8400BC0dC66Ee64169c8350C3760F0D0A20502A8", // Smart Contract Adress
+        to: blockchain.smartContract._address, // Smart Contract Adress
         from: blockchain.account,
         value: (data.price * _amount).toString(),
       })
@@ -145,22 +133,9 @@ function App() {
       <Navbar />
       <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
         <VStack w='100%' marginX={'0%'} minH='80%' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
-          <HStack w='100%' pt='3%' pb='3%' alignItems='center' spacing='5%' >
-            <VStack marginLeft={'15vw'} alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
-              <Text mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
-                What is Sophia the Cat
-              </Text>
-              <Text paddingLeft={'10'} paddingRight={'10'} marginLeft={'10'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                Sophia the Cat is a NFT collection of uniquely designed elegant kats.The combination of sketchy and edgy looks will give you a new aspect for
-                NFT
-              </Text>
-            </VStack>
-            <Box w='30%' h='100%'>
-              <Image w='100%' h='100%' paddingBottom={'15%'} src={nftGif} />
-            </Box>
-
-
-          </HStack>
+          
+            <WhatisSTC/>
+          
           <HStack pt='30' px='5vw' p='3vw' overflow='false' >
             <Box
               ml={!button ? '25%' : '0%'}
@@ -179,7 +154,7 @@ function App() {
               ) : (
                 <>
                   <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
-                    1 Cat costs 1 Avax.
+                    1 Cat costs 1.5 Avax
                   </Text>
                   <Spacer />
                   <Text color='#9a6e5d' style={{ textAlign: "center" }}>
@@ -200,7 +175,7 @@ function App() {
                           bg={'transparent'}
                           _hover={{ bg: "transparent" }}
                           color='white'
-                          mx-auto
+                          
                           onClick={() => {
                             if (amount > 1) {
                               setAmount(amount - 1)
@@ -212,7 +187,7 @@ function App() {
                         </Button>
                       </Flex>
 
-                      <Text color='#9a6e5d'>
+                      <Text color='#9a6e5d' fontSize={!button ? '4xl' : 'xl'}>
                         {amount}
                       </Text>
                       <Flex w={!button ? '4vw' : '10vw'} h='6vh' bgImage={mintplus} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
@@ -224,7 +199,7 @@ function App() {
                           bg={'transparent'}
                           _hover={{ bg: "transparent" }}
                           color='white'
-                          mx-auto
+                          
                           onClick={() => {
                             if (amount < 20) {
                               setAmount(amount + 1)
@@ -236,7 +211,7 @@ function App() {
                       </Flex>
                     </HStack>
 
-                    <Flex w={!button ? '16vw' : '25vw'} h='20vh' bgImage={pawimage} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
+                    <Flex w={!button ? '300px' : '25vw'} h={!button ? '300px' : '25vw'} bgImage={pawimage} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
                       <Button
                         w='100%'
                         h='100%'
@@ -245,7 +220,7 @@ function App() {
                         bg={'transparent'}
                         _hover={{ bg: "transparent" }}
                         color='white'
-                        mx-auto
+                        
                         onClick={(e) => {
                           e.preventDefault();
                           claimNFTs(amount);

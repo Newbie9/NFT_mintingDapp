@@ -141,7 +141,7 @@ function Navbar() {
                         borderRadius='xl'
                         _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
                     >
-                        <a href='https://discord.gg/x2DqFMfV8Z'>
+                        <a href='https://discord.gg/KTFYec4m'>
                             <Icon h={button ? 5 : 8} as={FaDiscord} color='#9a6e5d' />
                         </a>
                     </Box>

@@ -64,7 +64,7 @@ export const connect = () => {
             //SmartContract.abi,
             //NetworkData.address            
             SmartContract.abi,
-            "0x8400BC0dC66Ee64169c8350C3760F0D0A20502A8"
+            "0xC8509F61E5A671B5516773555E9665780B0e47F7"
           );
           console.log(SmartContractObj);
           dispatch(

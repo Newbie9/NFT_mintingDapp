@@ -35,28 +35,56 @@ function Roadmap() {
     window.addEventListener('resize', showButton);
 
     return (
-        <HStack w='100%' h='50vh' pt='5vh' pb='5vh' alignItems='center' spacing={!button ? '10%' : '1%'} >
-            <VStack marginLeft={!button ? '15vw' : '5%'} alignItems='auto' w={!button ? '45vw' : '80%'} h='100%' pt='2%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
-                <Text mx='auto' fontWeight="semibold" marginTop='10px' fontSize={!button ? '4xl' : 'l'} color='#52392E'>
-                    Roadmap
-                </Text>
-                <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %25 Minted => We airdrop to 1 AVAX to 3 lucky holders                    
-                </Text>
-                <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %50 Minted => We airdrop to 2 AVAX to 3 lucky holders                    
-                </Text>
-                <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %75 Minted => We airdrop to 3 AVAX to 3 lucky holders                    
-                </Text>
-                <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                    %100 Minted => We airdrop to 4 AVAX to 3 lucky holders                    
-                </Text>
-            </VStack>
-            <Box  w='30%' h={!button ? '120%' : '70%'} >
-                <Image w={!button ? '70%' : '100%'} h='100%' src={sampleim1} />
-            </Box>
-        </HStack>
+        <div>
+            {!button ?
+                <HStack w='100%' h='53vh' pt='5vh' pb='5vh' alignItems='center' spacing={!button ? '7%' : '1%'} >
+                    <VStack marginLeft={!button ? '15vw' : '5%'} alignItems='auto' w={!button ? '45vw' : '80%'} h='100%' pt='2%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+                        <Text mx='auto' fontWeight="semibold" marginTop='10px' fontSize={!button ? '4xl' : 'l'} color='#52392E'>
+                            Roadmap
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                    %25 Minted => We airdrop to 1 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                    %50 Minted => We airdrop to 2 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                    %75 Minted => We airdrop to 3 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                    %100 Minted => We airdrop to 4 AVAX to 3 lucky holders
+                        </Text>
+                    </VStack>
+                    <Box w='25%' h={!button ? '120%' : '70%'} >
+                        <Image w={!button ? '100%' : '100%'} h='100%' src={sampleim1} position={'center center'} />
+                    </Box>
+                </HStack>
+                :
+                <VStack w='100%' h='70vh' pt='5vh' pb='5vh' alignItems='center' spacing={!button ? '7%' : '5%'} >
+                    <VStack  alignItems='auto' w={!button ? '45vw' : '80%'} h='100%' pt='2%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+                        <Text mx='auto' fontWeight="semibold" marginTop='10px' fontSize={!button ? '4xl' : 'l'} color='#52392E'>
+                            Roadmap
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                %25 Minted => We airdrop to 1 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                %50 Minted => We airdrop to 2 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                %75 Minted => We airdrop to 3 AVAX to 3 lucky holders
+                        </Text>
+                        <Text paddingLeft={!button ? '10' : '4'} paddingRight={!button ? '10' : '4'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                %100 Minted => We airdrop to 4 AVAX to 3 lucky holders
+                        </Text>
+                    </VStack>
+                    <Box marginTop={'10'} w='40%' h= {(window.innerWidth*40/100).toString() } >
+                        <Image w={!button ? '100%' : '100%'} h='100%' src={sampleim1} position={'center center'} />
+                    </Box>
+                </VStack>
+            }
+        </div>
+
     )
 }
 

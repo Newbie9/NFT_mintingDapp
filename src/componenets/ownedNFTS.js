@@ -82,7 +82,7 @@ function OwnedNFTS() {
         {blockchain.account !== "" &&
                 blockchain.smartContract !== null && viewNFTs && data.tokensOfUser.length != 0 ? (
                 <VStack pt='30'  pb='5%' px='3vw' spacing='3%'>
-                  <Text style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }} >
+                  <Text color='#9a6e5d' style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }} >
                     {"Your Kets"}
                   </Text>                  
                   <SimpleGrid columns={!button ? 4 : 1} spacingX="40px" spacingY="20px">

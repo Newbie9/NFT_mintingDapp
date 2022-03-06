@@ -25,7 +25,7 @@ function OwnedNFTS() {
           for (let i = 0; i < data.tokensOfUser.length; i++) {
             let nft = data.tokensOfUser[i];
             blockchain.smartContract.methods.tokenURI(nft).call()
-              .then((uri) => fetch(uri.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"), {crossDomain:true} ))
+              .then((uri) => fetch(uri.replace("ipfs://", "https://ipfs.io/ipfs/"), {crossDomain:true} ))
               .then((response) => response.json())
               .then((metaData) => {                
                 setNFTS((prevState) => [
@@ -52,7 +52,7 @@ function OwnedNFTS() {
       const getData = () => {
         
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
-          console.log(blockchain.smartContract)
+          //console.log(blockchain.smartContract)
           dispatch(fetchData(blockchain.account));
     
         }
@@ -102,7 +102,7 @@ function OwnedNFTS() {
                             <Text align='center' fontWeight='semiBold' fontSize='xl'> {nft.metaData.name} </Text>
                             <Image
                               alt={nft.metaData.name}
-                              src={nft.metaData.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/")}
+                              src={nft.metaData.image.replace("ipfs://", "https://ipfs.io/ipfs/")}
                               boxSize="300px"
                               objectFit="cover"
                               pos={'center', 'center'}

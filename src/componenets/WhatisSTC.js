@@ -38,13 +38,13 @@ function Roadmap() {
         <div>
             {!button ?
                 <HStack w='100%' pt='3%' pb='3%' alignItems='center' spacing='5%' >
-                    <VStack marginLeft={'15vw'} alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
-                        <Text mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
+                    <VStack  borderRadius='30' marginLeft={'15vw'} alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+                        <Text paddingLeft='10' paddingRight='10' mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
                             What is Sophia the Cat
                         </Text>
-                        <Text paddingLeft={'10'} paddingRight={'10'} marginLeft={'10'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                            Sophia the Cat is a NFT collection of uniquely designed elegant kats.The combination of sketchy and edgy looks will give you a new aspect for
-                            NFT
+                        <Text alignSelf={'center'} paddingLeft={'10'} paddingRight={'10'} marginLeft={'10'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
+                            Sophia the Cat is an NFT collection of uniquely designed elegant kats. The combination of sketchy and edgy looks will give you a new aspect for
+                            NFT.
                         </Text>
                     </VStack>
                     <Box w='30%' h='100%'>
@@ -53,13 +53,13 @@ function Roadmap() {
                 </HStack>
                 :
                 <VStack w='100%' pt='3%'  alignItems='center' spacing='5%' >
-                    <VStack  alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+                    <VStack  borderRadius='30' alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
                         <Text mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
                             What is Sophia the Cat
                         </Text>
                         <Text paddingLeft={'10'} paddingRight={'10'} marginLeft={'10'} fontSize={!button ? 'xl' : 'small'} color='#52392E'>
-                            Sophia the Cat is a NFT collection of uniquely designed elegant kats.The combination of sketchy and edgy looks will give you a new aspect for
-                            NFT
+                            Sophia the Cat is an NFT collection of uniquely designed elegant kats. The combination of sketchy and edgy looks will give you a new aspect for
+                            NFT.
                         </Text>
                     </VStack>
                     <Box w='40%' h='100%'>

@@ -1,5 +1,5 @@
-import React, {useState, useEffect}  from 'react'
-import {Box, HStack, Image, Button, Spacer, Text} from '@chakra-ui/react'
+import React, { useState, useEffect } from 'react'
+import { Box, HStack, Image, Button, Spacer, Text } from '@chakra-ui/react'
 import {
     Menu,
     MenuButton,
@@ -12,13 +12,13 @@ import {
     MenuCommand,
     MenuDivider,
     IconButton
-  } from "@chakra-ui/react"
+} from "@chakra-ui/react"
 import { useToast } from "@chakra-ui/react"
 import Logo from "../assets/images/website_logo.png"
-import {FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"
-import {GiHamburgerMenu} from "react-icons/gi"
-import {MdAccountBalanceWallet, MdConstruction} from "react-icons/md"
-import {IoIosConstruct} from "react-icons/io"
+import { FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"
+import { GiHamburgerMenu } from "react-icons/gi"
+import { MdAccountBalanceWallet, MdConstruction } from "react-icons/md"
+import { IoIosConstruct } from "react-icons/io"
 import { Icon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "../redux/blockchain/blockchainActions";
@@ -29,7 +29,7 @@ import {
     AlertTitle,
     AlertDescription,
     CloseButton
-  } from "@chakra-ui/react"
+} from "@chakra-ui/react"
 
 
 
@@ -44,49 +44,51 @@ function Navbar() {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false)
 
-    
+
     const showButton = () => {
         if (window.innerWidth <= 960) {
-          setButton(true);
+            setButton(true);
         } else {
-          setButton(false);
+            setButton(false);
         }
-      };
-    
+    };
+
 
     useEffect(() => {
         showButton();
     }, []);
 
     useEffect(() => {
-        if (blockchain.errorMsg == ""){}
-        else{
+        if (blockchain.errorMsg == "") { }
+        else {
             toast({
                 description: blockchain.errorMsg,
                 status: "error",
                 duration: 9000,
                 isClosable: true,
-            })}
-        
+            })
+        }
+
     }, [blockchain.errorMsg]);
 
     useEffect(() => {
-        if (blockchain.account == null){}
-        else{
+        if (blockchain.account == null) { }
+        else {
             toast({
                 description: "Connected Successfully",
                 status: "success",
                 duration: 9000,
                 isClosable: true,
-            })}
-        
+            })
+        }
+
     }, [blockchain.account]);
 
     window.addEventListener('resize', showButton);
 
     return (
         <div>
-            
+            {!button ?
                 <HStack
                     w='100%'
                     h='20vh'
@@ -94,92 +96,200 @@ function Navbar() {
                     pr='5vw'
                     bg='#43403f'
                     marginX={'0'}
-                >  
-                    <a href="https://sophiathecat.co/" >          
-                    <Image
-                        src={Logo}
-                        w={!button ? '25vw' : '45vw'}
-                        ml={!button ? '35vw' : '2vw'}               
-                        h='20vh'                        
-                    />
+                >
+                    <a href="https://sophiathecat.co/" >
+                        <Image
+                            src={Logo}
+                            w={!button ? '25vw' : '45vw'}
+                            ml={!button ? '35vw' : '2vw'}
+                            h='20vh'
+                        />
                     </a>
-                    
-                    <HStack>
-                        
-                    <Box
-                        align='center'
-                        w='4vw'
-                        fontSize='3xl'
-                        fontWeight='semibold'
-                        p='3'
-                        borderRadius='xl'
-                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
-                    >
-                        <a href='https://twitter.com/sophiathecatNFT'>
-                            <Icon h={button ? 5 : 8} as={FaTwitter} color='#9a6e5d' />
-                        </a>
-                    </Box>
-                    <Box
-                        align='center'
-                        w='4vw'
-                        fontSize='3xl'
-                        fontWeight='semibold'
-                        p='3'
-                        borderRadius='xl'
-                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
-                    >
-                        <a href='https://www.instagram.com/sophiathecat16/'>
-                            <Icon h={button ? 5 : 8} as={FaInstagram} color='#9a6e5d' />
-                        </a>
-                    </Box>
-                    <Box
-                        align='center'
-                        w='4vw'
-                        fontSize='3xl'
-                        fontWeight='semibold'
-                        p='3'
-                        borderRadius='xl'
-                        _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
-                    >
-                        <a href='https://discord.gg/KTFYec4m'>
-                            <Icon h={button ? 5 : 8} as={FaDiscord} color='#9a6e5d' />
-                        </a>
-                    </Box>
-                        {blockchain.account === "" ||   blockchain.smartContract === null ? (
-                        <Box paddingLeft={!button ? '0vw' : '12vw'}>
-                            <Button
-                                p='3'                                
-                                w={!button ? '10vw' : '10vw'}
-                                bg='transparent'
-                                borderRadius='150'
-                                boxShadow='5'
-                                color='#9a6e5d'
-                                //mx-auto
-                                //bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
-                                //variant="outline"
-                                _hover={{ bg: "blackAlpha.400" }}
-                                onClick={(e) => {
-                                e.preventDefault();
-                                dispatch(connect());
-                                //getData();
-                                }}
-                                leftIcon=  {<Icon as={MdAccountBalanceWallet} color='#9a6e5d' w={button ? 5 : 8} h={button ? 5 : 8}/>}
-                            >
-                                
-                                CONNECT
-                            </Button>   
-                        </Box>):(
+
+                    <HStack marginRight={!button ? '5vw' : '15vw'}   >
+
+                        <Box
+                            align='center'
+                            w='4vw'
+                            fontSize='3xl'
+                            fontWeight='semibold'
+                            p='3'
+                            borderRadius='xl'
+                            _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                        >
+                            <a href='https://twitter.com/sophiathecatNFT'>
+                                <Icon h={button ? 5 : 8} as={FaTwitter} color='#9a6e5d' />
+                            </a>
+                        </Box>
+                        <Box
+                            align='center'
+                            w='4vw'
+                            fontSize='3xl'
+                            fontWeight='semibold'
+                            p='3'
+                            borderRadius='xl'
+                            _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                        >
+                            <a href='https://www.instagram.com/sophiathecat16/'>
+                                <Icon h={button ? 5 : 8} as={FaInstagram} color='#9a6e5d' />
+                            </a>
+                        </Box>
+                        <Box
+                            align='center'
+                            w='4vw'
+                            fontSize='3xl'
+                            fontWeight='semibold'
+                            p='3'
+                            borderRadius='xl'
+                            _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                        >
+                            <a href='https://discord.gg/KTFYec4m'>
+                                <Icon h={button ? 5 : 8} as={FaDiscord} color='#9a6e5d' />
+                            </a>
+                        </Box>
+                        {blockchain.account === "" || blockchain.smartContract === null ? (
+                            <Box paddingLeft={!button ? '0vw' : '12vw'}>
+                                <Button
+                                    p='3'
+                                    w={!button ? '10vw' : '18vw'}
+                                    bg='transparent'
+                                    borderRadius='150'
+                                    boxShadow='5'
+                                    color='#9a6e5d'
+                                    //mx-auto
+                                    //bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
+                                    //variant="outline"
+                                    _hover={{ bg: "blackAlpha.400" }}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        dispatch(connect());
+                                        //getData();
+                                    }}
+                                    leftIcon={<Icon as={MdAccountBalanceWallet} color='#9a6e5d' w={button ? 5 : 8} h={button ? 5 : 8} />}
+                                >
+
+                                    CONNECT
+                                </Button>
+                            </Box>) : (
 
                             null
-                        
 
-                        )}          
+
+                        )}
                     </HStack>
-                         
+
                 </HStack>
-                
-            
-                       
+                :
+                <HStack
+                    w='100%'
+                    h='20vh'
+                    spacing='auto'
+                    pr='5vw'
+                    bg='#43403f'
+                    marginX={'0'}
+                >
+                    <a href="https://sophiathecat.co/" >
+                        <Image
+                            src={Logo}
+                            w='80%'
+                            ml='20%'
+                            h='20vh'
+                        />
+                    </a>
+
+                    <HStack  marginRight={!button ? '5vw' : '15vw'}   >
+                        <Menu bg='red'>
+                            <MenuButton as={IconButton}  icon={<GiHamburgerMenu />} variant="outline"/>
+                            <MenuList bg='#43403f' align='center' w='20vw'>
+                            <MenuItem alignSelf={'center'} >
+                                <Box
+                                    marginLeft={'35%'}
+                                    w='30%'                                    
+                                    fontSize='3xl'
+                                    fontWeight='semibold'
+                                    p='3'
+                                    borderRadius='xl'
+                                    _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                                >
+                                    <a alignSelf={'center'} href='https://twitter.com/sophiathecatNFT'>
+                                        <Icon alignSelf={'center'} h='100%' as={FaTwitter} color='#9a6e5d' />
+                                    </a>
+                                </Box>
+                            </MenuItem>
+                            <MenuItem>
+                                <Box
+                                    align='center'
+                                    w='30%'
+                                    marginLeft={'35%'}
+                                    fontSize='3xl'
+                                    fontWeight='semibold'
+                                    p='3'
+                                    borderRadius='xl'
+                                    _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                                >
+                                    <a href='https://www.instagram.com/sophiathecat16/'>
+                                        <Icon h='100%' as={FaInstagram} color='#9a6e5d' />
+                                    </a>
+                                </Box>
+                            </MenuItem>
+                            <MenuItem>
+                                <Box
+                                    align='center'
+                                    w='30%'
+                                    marginLeft={'35%'}
+                                    fontSize='3xl'
+                                    fontWeight='semibold'
+                                    p='3'
+                                    borderRadius='xl'
+                                    _hover={{ borderRadius: 'xl', fontSize: '4xl' }}
+                                >
+                                    <a href='https://discord.gg/KTFYec4m'>
+                                        <Icon h='100%' as={FaDiscord} color='#9a6e5d' />
+                                    </a>
+                                </Box>
+                            </MenuItem>
+                            {blockchain.account === "" || blockchain.smartContract === null ? (
+                                <MenuItem>
+                                    <Box paddingLeft={!button ? '0vw' : '12vw'}>
+                                        <Button
+                                            p='3'
+                                            w={!button ? '10vw' : '18vw'}
+                                            bg='transparent'
+                                            borderRadius='150'
+                                            boxShadow='5'
+                                            color='#9a6e5d'
+                                            //mx-auto
+                                            //bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
+                                            //variant="outline"
+                                            _hover={{ bg: "transparent" }}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                dispatch(connect());
+                                                //getData();
+                                            }}
+                                            leftIcon={<Icon as={MdAccountBalanceWallet} color='#9a6e5d' w={button ? 5 : 8} h={button ? 5 : 8} />}
+                                        >
+
+                                            CONNECT
+                                        </Button>
+                                    </Box>
+                                </MenuItem>
+                            ) : (
+
+                                null
+
+
+                            )}
+                            </MenuList>
+                        </Menu>
+                    </HStack>
+
+                </HStack>
+            }
+
+
+
+
         </div>
     )
 }

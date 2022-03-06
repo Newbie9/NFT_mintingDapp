@@ -47,7 +47,7 @@ export const fetchData = (account) => {
         .getState()
         .blockchain.smartContract.methods.walletOfOwner(account)
         .call();  
-      console.log(tokensOfUser)      
+      //console.log(tokensOfUser)      
       
       //console.log(reward)
       let temp = await dispatch(

@@ -17,7 +17,7 @@ import WhatisSTC from "./componenets/WhatisSTC"
 import Cover from "./componenets/Cover"
 import nftGif from "./assets/images/nftGif.gif"
 import yildizgif from "./assets/images/yildiz_gif4.gif"
-import pawimage from "./assets/images/paw.png"
+import pawimage from "./assets/images/paw.gif"
 import textureimg from "./assets/images/texture.png"
 import cerceve1 from "./assets/images/cerceve1.png"
 import stringsimg from "./assets/images/strings.PNG"
@@ -145,7 +145,7 @@ function App() {
               pb='30'
               borderRadius='150'
             >
-              {Number(data.totalSupply) == 500 ? (
+              {Number(data.totalSupply) == 480 ? (
                 <>
                   <Text style={{ textAlign: "center" }} fontSize='4xl'>
                     The sale has ended
@@ -153,9 +153,16 @@ function App() {
                 </>
               ) : (
                 <>
-                  <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
+                  {blockchain.chain == 'Polygon' ? 
+                    <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
+                    1 Cat costs 80 MATIC
+                    </Text>
+                  :
+                    <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
                     1 Cat costs 1.5 Avax
-                  </Text>
+                    </Text>
+                  }
+                  
                   <Spacer />
                   <Text color='#9a6e5d' style={{ textAlign: "center" }}>
                     {feedback}

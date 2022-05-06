@@ -28,7 +28,7 @@ function Footer() {
     return (
         <div>
 
-            <HStack w='100%' bg='#43403f' h='20vh' pl='20vw' spacing='auto' pr='15vw'>
+            <HStack w='100%' bg='#819794' h='20vh' pl='20vw' spacing='auto' pr='15vw'>
                 
 
                 <HStack >

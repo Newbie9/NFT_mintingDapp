@@ -53,7 +53,7 @@ function WeGiveBack() {
 
                 </HStack>
                 :
-                <VStack w='100%' minH='70vh' pb='5vh' alignItems='center' spacing={!button ? '7%' : '5%'} >
+                <VStack w='100%' minH='70vh' pb='5vh' pt='5vh' alignItems='center' spacing={!button ? '7%' : '5%'} >
                     
                     <VStack borderRadius='30' alignItems='auto' w={!button ? '45vw' : '80%'} h='100%' pt='2%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
                         <Text mx='auto' fontWeight="semibold" marginTop='10px' fontSize={!button ? '4xl' : 'l'} color='#52392E'>

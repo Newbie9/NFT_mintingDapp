@@ -1,118 +1,72 @@
 /* Cover */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
-
-p {
-  margin: 0;
-}
-
-.clip-contents {
-  overflow: hidden;
-}
-
-.flex-col-hstart-vstart {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.cover {
+#app { height: 100% }
+html,
+body {
   position: relative;
-  background-color: rgba(255, 117, 117, 1);
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 80%;
+  height: 100%;
+    
+  margin-bottom: 0em;
+  
+}
+
+.swiper-button-prev {
+  left: -20px;
+  position: absolute;
+}
+.swiper-button-next {
+  right: -20px;
+  position: absolute;
+}
+.swiper-container{
+  width: 20%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-bottom: 3em;
+}
+
+.swiper-slide img {
+  display: block;
   width: 100%;
-  height: 960px;
+  height: 100%;
+  object-fit: cover;
+  
 }
 
-.dot-grid {
-  position: absolute;
-  top: 38px;
-  left: 34px;
-  width: 1851.48px;
-  height: 883.17px;
-}
 
-.text-block {
-  position: absolute;
-  top: 204px;
-  left: 218px;
-  width: 678px;
-  height: 276px;
-}
 
-.figjam-box {
-  position: absolute;
-  top: 100px;
-  left: 225px;
-  width: 327px;
-  height: 81px;
-}
 
-.txt-494 {
-  position: absolute;
-  top: 103px;
-  left: 247px;
-  font-size: 55px;
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  line-height: 163%;
-  color: rgba(0, 0, 0, 1);
-  width: 197px;
-  height: 79px;
-  word-wrap: break-word;
-}
 
-.txt-148 {
-  position: absolute;
-  top: 188px;
-  left: 220px;
-  font-size: 144px;
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  line-height: 106%;
-  letter-spacing: 1.44px;
-  color: rgba(255, 255, 255, 1);
-  width: 704px;
-  height: 313px;
-  word-wrap: break-word;
-}
 
-.vector {
-  position: absolute;
-  top: 10.42%;
-  bottom: 10.83%;
-  left: 48.13%;
-  right: 11.72%;
-  width: 771px;
-  height: 756px;
-}
 
-.vector-1 {
-  position: absolute;
-  top: 23.75%;
-  bottom: 24.34%;
-  left: 54.95%;
-  right: 18.46%;
-  width: 510.48px;
-  height: 498.3px;
-}
-
-.vector-2 {
-  position: absolute;
-  top: 54.48%;
-  bottom: 29.82%;
-  left: 57.86%;
-  right: 21.46%;
-  width: 397px;
-  height: 150.74px;
-}
-
-.vector-3 {
-  position: absolute;
-  top: 28.44%;
-  bottom: 48.44%;
-  left: 62.5%;
-  right: 26.04%;
-  width: 220px;
-  height: 222px;
-}

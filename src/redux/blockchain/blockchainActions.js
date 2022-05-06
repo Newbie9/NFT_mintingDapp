@@ -64,7 +64,7 @@ export const connect = () => {
             //SmartContract.abi,
             //NetworkData.address            
             SmartContract.abi,
-            "0xeb5C2052b63a73eB7627B4c96B37204Cd90D7655"
+            "0xeb5C2052b63a73eB7627B4c96B37204Cd90D765x"
           );
           //console.log(SmartContractObj);
           dispatch(
@@ -83,31 +83,7 @@ export const connect = () => {
             window.location.reload();
           });          
           // Add listeners end
-        }else if (chainId=="0x89") {       //0x4de onengtest 0x89 polygon
-          const SmartContractObj = new Web3EthContract(
-            //SmartContract.abi,
-            //NetworkData.address            
-            SmartContract.abi,
-            "0x95C1A7F0640129F1Ab6c963EA706A7Ac9658fAcd"
-          );
-          //console.log(SmartContractObj);
-          dispatch(
-            connectSuccess({
-              account: accounts[0],
-              smartContract: SmartContractObj,
-              web3: web3,
-              chain: 'Polygon',
-            })
-          );
-          // Add listeners start
-          ethereum.on("accountsChanged", (accounts) => {
-            dispatch(updateAccount(accounts[0]));
-          });
-          ethereum.on("chainChanged", () => {
-            window.location.reload();
-          });          
-          // Add listeners end
-        } 
+        }
         else {
           dispatch(connectFailed("Change network to Avalanche or Polygon."));
         }

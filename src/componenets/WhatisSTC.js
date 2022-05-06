@@ -53,7 +53,7 @@ function Roadmap() {
                 </HStack>
                 :
                 <VStack w='100%' pt='3%'  alignItems='center' spacing='5%' >
-                    <VStack  borderRadius='30' alignItems='auto' w={!button ? '35%' : '60%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
+                    <VStack  borderRadius='30' alignItems='auto' w={!button ? '35%' : '80%'} h={!button ? '65%' : '100%'} pt='2%' py='5%' bgImage={cerceve1} backgroundSize={'100% 100%'} backgroundPosition={'center center'} backgroundRepeat='no-repeat'>
                         <Text mx='auto' fontWeight="semibold" fontSize={!button ? '4xl' : 'l'} color='#52392E'>
                             What is Sophia the Cat
                         </Text>

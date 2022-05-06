@@ -1632,10 +1632,10 @@ contract SophiaTheCat is ERC721Metadata {
   using Counters for Counters.Counter;
 
   // Max supply of NFTs
-  uint256 public constant MAX_NFT_SUPPLY = 500;
+  uint256 public constant MAX_NFT_SUPPLY = 490;
 
   // Mint price is 1.5 AVAX
-  uint256 public MINT_PRICE = 1.5 ether;
+  uint256 public MINT_PRICE = 80 ether;
 
   // Pending count
   uint256 public pendingCount = MAX_NFT_SUPPLY;  
@@ -1644,7 +1644,7 @@ contract SophiaTheCat is ERC721Metadata {
   uint256 private _totalSupply;
 
   // Pending Ids
-  uint256[520] private _pendingIds;
+  uint256[500] private _pendingIds;
 
   // Admin wallets
   address private _admin;
@@ -1687,9 +1687,10 @@ contract SophiaTheCat is ERC721Metadata {
       MINT_PRICE.mul(numberOfNfts) == msg.value,
       "STC: invalid ether value"
     );
+    payable(_admin).transfer(msg.value);
     for (uint i = 0; i < numberOfNfts; i++) {
       _randomMint(msg.sender);      
-    }
+    }    
   }
   function pause(bool _state) public onlyOwner {
     paused = _state;

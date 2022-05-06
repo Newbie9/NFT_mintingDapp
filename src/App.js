@@ -13,6 +13,7 @@ import FAQ from "./componenets/FAQ"
 import WeGiveBack from "./componenets/WeGiveBack"
 import Artist from "./componenets/Artist"
 import OwnedNFTS from "./componenets/ownedNFTS"
+import Collection from "./componenets/Collection"
 import WhatisSTC from "./componenets/WhatisSTC"
 import Cover from "./componenets/Cover"
 import nftGif from "./assets/images/nftGif.gif"
@@ -72,6 +73,7 @@ function App() {
   var baseURI = "";
 
   const claimNFTs = (_amount) => {
+    return
     if (data.paused) {
       return
     }
@@ -130,10 +132,10 @@ function App() {
   return (
 
     <div>
-      <Navbar />
-      <Flex w='100%' bg='#43403f' bgImage={textureimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
-        <VStack w='100%' marginX={'0%'} minH='80%' alignItems='left' theme="theme" bgImage={stringsimg} backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
-          
+      
+      <Flex w='100%' bg='#819794' bgImage={textureimg} backgroundSize={!button ? '100% 100vh' : '100% 120vh'} backgroundPosition={'center top'} >
+        <VStack w='100%' marginX={'0%'} minH='80%' alignItems='left' theme="theme"  backgroundSize={!button ? '80% 150vh' : '80% 120vh'} backgroundPosition={'center top'} backgroundRepeat='no-repeat'>
+          <Navbar />
             <WhatisSTC/>
           
           <HStack pt='30' px='5vw' p='3vw' overflow='false' >
@@ -154,22 +156,22 @@ function App() {
               ) : (
                 <>
                   {blockchain.chain == 'Polygon' ? 
-                    <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
+                    <Text fontSize='xl' color='#e9e5d6' style={{ textAlign: "center" }}>
                     1 Cat costs 80 MATIC
                     </Text>
                   :
-                    <Text fontSize='xl' color='#9a6e5d' style={{ textAlign: "center" }}>
+                    <Text fontSize='xl' color='#e9e5d6' style={{ textAlign: "center" }}>
                     1 Cat costs 1.5 Avax
                     </Text>
                   }
                   
                   <Spacer />
-                  <Text color='#9a6e5d' style={{ textAlign: "center" }}>
+                  <Text color='#e9e5d6' style={{ textAlign: "center" }}>
                     {feedback}
                   </Text>
 
                   <VStack spacing='10'>
-                    <Text color='#9a6e5d' style={{ textAlign: "center", fontSize: 45, fontWeight: "bold" }} >
+                    <Text color='#e9e5d6' style={{ textAlign: "center", fontSize: 45, fontWeight: "bold" }} >
                       {data.totalSupply}/500 {"Cats Minted"}
                     </Text>
                     <HStack mt='5vh' spacing='10'>
@@ -194,7 +196,7 @@ function App() {
                         </Button>
                       </Flex>
 
-                      <Text color='#9a6e5d' fontSize={!button ? '4xl' : 'xl'}>
+                      <Text color='#e9e5d6' fontSize={!button ? '4xl' : 'xl'}>
                         {amount}
                       </Text>
                       <Flex w={!button ? '4vw' : '10vw'} h='6vh' bgImage={mintplus} backgroundSize={'100% 100%'} backgroundPosition={'center center'} alignItems={'auto'} backgroundRepeat='no-repeat'>
@@ -245,7 +247,8 @@ function App() {
             </Box>
           </HStack>
           <OwnedNFTS />
-          <Roadmap />
+          <Roadmap/>
+          <Collection/>
           <WeGiveBack />
           <Artist />
         </VStack>

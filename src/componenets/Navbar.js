@@ -94,7 +94,7 @@ function Navbar() {
                     h='20vh'
                     spacing='auto'
                     pr='5vw'
-                    bg='#43403f'
+                    bg='transparent'
                     marginX={'0'}
                 >
                     <a href="https://sophiathecat.co/" >
@@ -185,7 +185,7 @@ function Navbar() {
                     h='20vh'
                     spacing='auto'
                     pr='5vw'
-                    bg='#43403f'
+                    bg='transparent'
                     marginX={'0'}
                 >
                     <a href="https://sophiathecat.co/" >
